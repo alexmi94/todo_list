@@ -8,7 +8,7 @@ Define template (Vue - MVC)
         <li>        
         <button
             @click="$emit('onClick', cmpValue._id)"
-        >Click
+        >
         </button>
         </li>
         
@@ -19,7 +19,7 @@ Define template (Vue - MVC)
         <li>
         <button
             @click="$emit('onRemove', cmpValue._id)"
-        > Delete
+        > 
         </button>
         </li>
         </ul>
