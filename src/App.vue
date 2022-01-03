@@ -19,6 +19,7 @@ Define template (Vue - MVC)
 				:content="storeTasks"
 				@onClick="toggleTaskState"
 				@onRemove="remove"
+				@onClearComplete="ClearComplete"
 				@onFilter="filter"
 			/>
 
@@ -92,6 +93,11 @@ Define script (Controller - MVC)
 
 					// Add new task in store
 					this.$store.dispatch('setfilter', event);
+				},
+				ClearComplete: function(event){
+
+					// Add new task in store
+					this.$store.dispatch('clearcomplete', event);
 				},
 			//
 		},

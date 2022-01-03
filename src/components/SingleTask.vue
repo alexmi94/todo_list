@@ -13,7 +13,8 @@ Define template (Vue - MVC)
         </li>
         
         <li>
-        <p>{{ cmpValue.content }}</p>
+        <p v-if="!cmpValue.done">{{ cmpValue.content }}</p>
+        <p v-else class="line">{{ cmpValue.content }}</p>
         </li>
         <!-- Bind click event -->
         <li>

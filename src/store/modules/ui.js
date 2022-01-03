@@ -59,6 +59,14 @@ export default {
 
         SETFILTER( state, payload ){
             state.filter.nb = payload.data
+        },
+
+        CLEARCOMPLETE( state){
+            for(let nb = state.tasks.length - 1; 0 <= nb; nb--){
+                if(true == state.tasks[nb].done){
+                    state.tasks.splice(nb, 1)
+                }
+            }
         }
         
     },
@@ -88,6 +96,10 @@ export default {
 
             setfilter(context, data){
                 context.commit(`SETFILTER`, { data });
+            },
+
+            clearcomplete(context){
+                context.commit(`CLEARCOMPLETE`);
             }
         //
     //

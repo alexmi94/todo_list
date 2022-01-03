@@ -7,6 +7,9 @@ Define template (Vue - MVC)
 	>
         <ul>
             <li>
+                <p>{{cmpList.length}} item left</p>
+            </li>
+            <li>
                 <button
                 @click="$emit('onFilter', 0)"
                 >All</button>
@@ -16,6 +19,11 @@ Define template (Vue - MVC)
                 <button
                 @click="$emit('onFilter', 2)"
                 >Complete</button>
+            </li>
+            <li>
+                <button
+                @click="$emit('onClearComplete')"
+                >Clear Complete</button>
             </li>
         </ul>
 	</div>
@@ -27,15 +35,34 @@ Define script (Controller - MVC)
 <script>
     export default {
         name: 'FooterList', //=> Component identifier
-        components: {  }, //=> Add child component
+        //=> Used to import values from parent component
+        props: {
+            content: {
+                type: Array,
+                default: () => {
+                    return undefined
+                },
+            }
+        },
+
+        //=> Used to manage value from parent component
+        computed: {
+            cmpList: function(){
+                if( this.content ){
+                    return this.content;
+                }else{
+                    return undefined;
+                }
+            },
+        },
         data(){
             //=> Used to inject values within the component
             return{
+
             }
         },
         //=> Used to inject methods within the component
-        methods: { },
-        //=> Component hooks https://bit.ly/31mmkxq (eq. event for component)
+        methods: {},
         created(){},
         mounted(){},
     }

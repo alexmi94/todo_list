@@ -55,7 +55,9 @@ Define template (Vue - MVC)
         <!-- Display child component -->
         
         <FooterList
-        @onFilter="$emit('onFilter', $event)"
+            :content="cmpList"
+            @onFilter="$emit('onFilter', $event)"
+            @onClearComplete="$emit('onClearComplete', $event)"
          />
 	</div>
 </template>
@@ -98,7 +100,6 @@ Define script (Controller - MVC)
                 }
             },
             cmpFilter: function(){
-                console.log(this.filter)
                 return this.filter;
             },
         },
